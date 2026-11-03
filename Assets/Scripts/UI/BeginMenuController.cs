@@ -10,6 +10,16 @@ public sealed class BeginMenuController : MonoBehaviour
     [SerializeField] private Button quitButton;
     [SerializeField] private Button rankingButton;
 
+    [Header("Panels")]
+    [SerializeField] private SettingsPanelController settingsPanel;
+    [SerializeField] private RankingPanelController rankingPanel;
+
+    private void Start()
+    {
+        settingsPanel.Hide();
+        rankingPanel.Hide();
+    }
+
     private void OnEnable()
     {
         startButton.onClick.AddListener(StartGame);
@@ -33,12 +43,12 @@ public sealed class BeginMenuController : MonoBehaviour
 
     private void OpenSettings()
     {
-        Debug.Log("打开设置界面");
+        settingsPanel.Show();
     }
 
     private void OpenRanking()
     {
-        Debug.Log("打开排行榜");
+        rankingPanel.Show();
     }
 
     private void QuitGame()
